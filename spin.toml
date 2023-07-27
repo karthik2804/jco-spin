@@ -1,0 +1,17 @@
+spin_manifest_version = "1"
+authors = ["Till Schneidereit <till@tillschneidereit.net>"]
+description = ""
+name = "tst"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = ""
+source = "comp.wasm"
+
+allowed_http_hosts = []
+[component.trigger]
+route = "/..."
+
+[component.build]
+command = "jco componentize -w wit -o comp.wasm -n http-trigger handler.js"
