@@ -1,2 +1,7 @@
-comp.wasm
+*.wasm
 .spin
+.turbo
+dist
+node_modules/
+target
+**/lib/

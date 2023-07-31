@@ -7,11 +7,12 @@ version = "0.1.0"
 
 [[component]]
 id = ""
-source = "comp.wasm"
-
-allowed_http_hosts = []
+source = "target/comp.wasm"
+allowed_http_hosts = ["https://random-data-api.fermyon.app/"]
+key_value_stores = ["default"]
 [component.trigger]
 route = "/..."
-
+[component.config]
+test = "https://my-api.com"
 [component.build]
-command = "jco componentize -w wit -o comp.wasm -n http-trigger handler.js"
+command = "npx rollup -c && mkdir -p target && npx jco componentize -w ./node_modules/spin-sdk/wit -o target/comp.wasm -n http-trigger dist/bundle.js"
